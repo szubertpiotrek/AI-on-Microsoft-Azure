@@ -34,22 +34,22 @@
         **true** sugeruje ręczne przejrzenie zawartości
         - Przykładowa odpowiedź:
         
-            ```
-                {
-                    "Classification": {
-                        "ReviewRecommended": true,
-                        "Category1": {
-                            "Score": 1.5113095059859916E-06
-                        },
-                        "Category2": {
-                            "Score": 0.12747249007225037
-                        },
-                        "Category3": {
-                            "Score": 0.98799997568130493
-                        }
+        ```
+            {
+                "Classification": {
+                    "ReviewRecommended": true,
+                    "Category1": {
+                        "Score": 1.5113095059859916E-06
+                    },
+                    "Category2": {
+                        "Score": 0.12747249007225037
+                    },
+                    "Category3": {
+                        "Score": 0.98799997568130493
                     }
                 }
-            ```
+            }
+        ```
         
     - Wulgaryzmy - mapowane i zwracane, gdzie **"Term"** jest elementem wulgarnym, **"index"**, pokazuje
     gdzie znajduje się słowo w tekście, **"ListId"** wskazuje konkretny wyraz z listy terminów
