@@ -52,8 +52,8 @@
         }
         ```
         
-    - Wulgaryzmy - mapowane i zwracane, gdzie **"Term"** jest elementem wulgarnym, **"index"**, pokazuje
-    gdzie znajduje się słowo w tekście, **"ListId"** wskazuje konkretny wyraz z listy terminów
+    - Wulgaryzmy - mapowane i zwracane, gdzie **"Term"** jest elementem wulgarnym, **"index"** pokazuje
+    gdzie znajduje się słowo w tekście, **"ListId"** wskazuje konkretny wyraz z listy terminów.
         Przykładowa odpowiedż:
         
         ```
