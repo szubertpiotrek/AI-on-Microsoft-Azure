@@ -133,7 +133,7 @@ kluczowych fraz, czy wykrywanie języka.
  - 3.1 - Usługa korzysta z algorytmu klasyfikacji uczenia maszynowego do generowania wyniku tonacji pomiędzy 0 a 1. Wyniki zbliżone
 do wartości 1 wskazują pozytywną tonację, natomiast wyniki zbliżone do wartości 0 — negatywną tonację. Wynik zbliżony do wartości 0,5
 oznacza brak tonacji lub neutralną tonację. Opiera się o strukturę żądania POST
-do przygotowanego endpointu **'/sentiment'**, **'/languages'**, a w odpowiedzi w formie JSON-a otrzymuje wynik analizy. Każdy request składa się z obektu,
+do przygotowanego endpointu **'/sentiment'**, **'/languages'**, **'/keyPhrases'**, **'/entities'**, a w odpowiedzi w formie JSON-a otrzymuje wynik analizy. Każdy request składa się z obektu,
 który posiada klucz **id** (dowolny unikatowy znak), **text** i **language** (nieobowiązkowy, gdy chcemy poznać język):
     
     ```
