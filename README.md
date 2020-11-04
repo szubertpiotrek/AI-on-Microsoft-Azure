@@ -11,7 +11,7 @@
  blokowanie zawartości, zatwierdzanie, czy przeglądanie zawartości na podstawie ustawionych progów, które sami 
  definiujemy albo korzystamy z wbudowanych możliwości. Odpowiedzi z API serwisu mogą być następujące:
 
-    - Lista potencjalnie niechcianych
+    - Lista potencjalnie niechcianych wyrazów
     - Typ niechcianych wyrazów
     - Możliwe informacje o danych osobowych (PII) znalezionych w tekście
             
@@ -23,7 +23,8 @@
  - 2.4 - Moderacja treści na portalach
 
 #### 3. How to use
- - 3.1 Możliwe ścieżki użycia:
+ - 3.1 Możliwe ścieżki użycia po wykonaniu żądania POST dla endpointu Content Moderatora, który składa się z URL z flagami dla konfiguracji
+  i przesłanego do analizu tekstu:
     - Klasyfikacja
         - Kategorie: 
         
@@ -132,19 +133,33 @@ kluczowych fraz, czy wykrywanie języka.
  - 3.1 - Usługa korzysta z algorytmu klasyfikacji uczenia maszynowego do generowania wyniku tonacji pomiędzy 0 a 1. Wyniki zbliżone
 do wartości 1 wskazują pozytywną tonację, natomiast wyniki zbliżone do wartości 0 — negatywną tonację. Wynik zbliżony do wartości 0,5
 oznacza brak tonacji lub neutralną tonację. Opiera się o strukturę żądania POST
-do przygotowanego endpointu **'/sentiment'**, a w odpowiedzi w formie JSON-a otrzymuje wynik analizy. Każdy request składa się z obektu,
+do przygotowanego endpointu **'/sentiment'**, **'/languages'**, a w odpowiedzi w formie JSON-a otrzymuje wynik analizy. Każdy request składa się z obektu,
 który posiada klucz **id** (dowolny unikatowy znak), **text** i **language** (nieobowiązkowy, gdy chcemy poznać język):
     
     ```
     {
         "documents": [
             {
-                "language": "lang",
                 "id": "1",
-                "text": "Halko halko"
+                "text": "Hello world"
             }]
         }
     }
     ```
+    
+    Odpowiedź endpointu: 
+
+    ```
+        {
+            "documents": [{
+                "id": "1",
+                "detectedLanguages": [{
+                "name": "English",
+                "iso6391Name": "en",
+                "score": 1.0
+            }]
+        }
+    ```
+    
  - 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
  ![](img/textAnalytics.png)
