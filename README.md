@@ -23,7 +23,9 @@
  - 2.4 - Moderacja treści na portalach
 
 #### 3. How to use
- - 3.1 Możliwe ścieżki użycia po wykonaniu żądania POST dla endpointu Content Moderatora, który składa się z URL z flagami dla konfiguracji
+ - 3.1 Możliwe ścieżki użycia po wykonaniu żądania POST dla endpointu Content Moderatora 
+ (url: https://westeurope.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=True), 
+ który składa się z URL z flagami dla konfiguracji
   i przesłanego do analizu tekstu:
     - Klasyfikacja
         - Kategorie: 
@@ -132,7 +134,7 @@ kluczowych fraz, czy wykrywanie języka.
 #### 3. How to use
  - 3.1 - Usługa korzysta z algorytmu klasyfikacji uczenia maszynowego do generowania wyniku tonacji pomiędzy 0 a 1. Wyniki zbliżone
 do wartości 1 wskazują pozytywną tonację, natomiast wyniki zbliżone do wartości 0 — negatywną tonację. Wynik zbliżony do wartości 0,5
-oznacza brak tonacji lub neutralną tonację. Opiera się o strukturę żądania POST
+oznacza brak tonacji lub neutralną tonację. Opiera się o strukturę żądania POST (url: https://westeurope.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment)
 do przygotowanego endpointu **'/sentiment'**, **'/languages'**, **'/keyPhrases'**, **'/entities'**, a w odpowiedzi w formie JSON-a otrzymuje wynik analizy. Każdy request składa się z obektu,
 który posiada klucz **id** (dowolny unikatowy znak), **text** i **language** (nieobowiązkowy, gdy chcemy poznać język):
     
