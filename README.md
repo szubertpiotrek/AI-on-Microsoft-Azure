@@ -33,8 +33,7 @@
         - Kategoria jest zwracana z oceną w skali 0-1, z pewnością przydzielonej kategorii. Paramter **"ReviewRecommended"** ustawiony na
         **true** sugeruje ręczne przejrzenie zawartości
         - Przykładowa odpowiedź:
-        <br/>
-        <br/>
+        
             ```
                 {
                     "Classification": {
