@@ -23,10 +23,8 @@
  - 2.4 - Moderacja treści na portalach
 
 #### 3. How to use
- - 3.1 Możliwe ścieżki użycia po wykonaniu żądania POST dla endpointu Content Moderatora 
- (url: https://westeurope.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=True), 
- który składa się z URL z flagami dla konfiguracji
-  i przesłanego do analizu tekstu:
+ - 3.1 Możliwe ścieżki użycia po wykonaniu żądania POST dla endpointu Content Moderatora, który składa się z URL z flagami dla konfiguracji
+  i przesłanego do analizy tekstu:
     - Klasyfikacja
         - Kategorie: 
         
