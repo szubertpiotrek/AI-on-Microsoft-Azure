@@ -1,0 +1,25 @@
+[import](common.lg)
+
+# SendActivity_gOCaTK()
+- I got an error: ${dialog.api_response.content.message}
+# SendActivity_9qxfPk()
+[ThumbnailCard
+    title = Today, ${DescribeWeather(dialog.weather)}
+    text = The wind is ${dialog.weather.wind.speed} meter/sec in Chałupy.
+    image = ${dialog.weather.icon}
+]
+# DescribeWeather(wind)
+- IF: ${wind.speed<=0.2}
+    - it's not windy, take a sup.
+- ELSEIF: ${wind.speed<=0.4}
+    - it's time for first steps.
+- ELSEIF: ${wind.speed<=0.6}
+    - it's quite good for taining board.
+- ELSEIF: ${wind.speed<=0.8}
+    - it's quite good for intermediate.
+- ELSEIF: ${wind.speed<=1.0}
+    - take a board and surf.
+- ELSEIF: ${wind.speed<=1.2}
+    - take a board and fly.
+- ELSE: 
+    - better stay at home.

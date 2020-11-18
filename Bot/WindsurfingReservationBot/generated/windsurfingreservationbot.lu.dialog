@@ -1,0 +1,8 @@
+{
+    "$kind": "Microsoft.MultiLanguageRecognizer",
+    "id": "LUIS_windsurfingreservationbot",
+    "recognizers": {
+        "en-us": "windsurfingreservationbot.en-us.lu",
+        "": "windsurfingreservationbot.en-us.lu"
+    }
+}

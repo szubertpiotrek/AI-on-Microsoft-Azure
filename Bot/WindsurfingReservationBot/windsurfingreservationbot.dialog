@@ -1,0 +1,209 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "$designer": {
+      "name": "WindsurfingReservationBot",
+      "description": "Bot that helps with windsurfing reservation",
+      "id": "0if8gA"
+    }
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "name": "Welcome"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item"
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else"
+              },
+              "condition": "string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "859266",
+                    "name": "Send a response"
+                  },
+                  "activity": "${SendActivity_Welcome()}"
+                }
+              ]
+            }
+          ],
+          "value": "dialog.foreach.value"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "QiOOM1",
+        "name": "reservation"
+      },
+      "intent": "reservation",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "vdMsJC"
+          },
+          "activityProcessed": true,
+          "dialog": "reservation"
+        }
+      ],
+      "condition": "#Reservation.score>=0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "XZgOyo",
+        "name": "cancel"
+      },
+      "intent": "cancel",
+      "condition": "#Cancel.score>=0.8",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "72nV5H"
+          },
+          "activityProcessed": true,
+          "dialog": "cancel",
+          "resultProperty": "#Cancel.score>=0.8"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "dDgVde",
+        "name": "help"
+      },
+      "intent": "help",
+      "condition": "#Help.score>=0.6",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "lE5VrR"
+          },
+          "activityProcessed": true,
+          "dialog": "help"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "BpRllo",
+        "name": "weather"
+      },
+      "intent": "weather",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "PX9OT4"
+          },
+          "activityProcessed": true,
+          "dialog": "weather"
+        }
+      ],
+      "condition": "#Weather.score>=0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "lGZNy6",
+        "name": "helpWithEquipment"
+      },
+      "intent": "helpWithEquipment",
+      "condition": "#HelpWithEquipment.score>=0.7",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "w6R4PJ"
+          },
+          "activityProcessed": true,
+          "dialog": "helpWithEquipment"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "nNzlPd",
+        "name": "complaint"
+      },
+      "intent": "complaint",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "mqsy5R"
+          },
+          "activityProcessed": true,
+          "dialog": "complaint"
+        }
+      ],
+      "condition": "#Complaint.score>=0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "6E4s39",
+        "name": "checkReservationStatus"
+      },
+      "intent": "checkReservationStatus",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "2BDwtR"
+          },
+          "activityProcessed": true,
+          "dialog": "checkReservationStatus"
+        }
+      ],
+      "condition": "#checkReservationStatus.score>=0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "hW2nby",
+        "name": "contact"
+      },
+      "intent": "contact",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "yFf91O"
+          },
+          "activityProcessed": true,
+          "dialog": "contact"
+        }
+      ],
+      "condition": "#Contact.score>=0.7"
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
+  "generator": "windsurfingreservationbot.lg",
+  "id": "WindsurfingReservationBot",
+  "recognizer": "windsurfingreservationbot.lu.qna"
+}

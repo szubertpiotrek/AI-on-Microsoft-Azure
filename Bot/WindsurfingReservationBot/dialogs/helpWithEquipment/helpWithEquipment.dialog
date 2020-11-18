@@ -1,0 +1,89 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ceE5LH",
+    "name": "helpWithEquipment",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "ydzZQs"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "7h3kW0"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_7h3kW0()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.level",
+          "outputFormat": "=this.value"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "bHuqJS"
+          },
+          "url": "http://api.openweathermap.org/data/2.5/weather?lat=54.75&lon=18.5&appid=206431c2a61b404b105bb0763a88daac",
+          "resultProperty": "dialog.api_response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "BTiS9Y"
+          },
+          "condition": "dialog.api_response.statusCode==200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "b7h4Gm"
+              },
+              "property": "dialog.weather",
+              "value": "=dialog.api_response.content"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "E91GVE"
+              },
+              "activity": "${SendActivity_E91GVE()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "vwAfDj"
+              },
+              "activity": "${SendActivity_vwAfDj()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "X9tn59"
+          },
+          "activity": "${SendActivity_X9tn59()}"
+        }
+      ]
+    }
+  ],
+  "generator": "helpWithEquipment.lg",
+  "recognizer": "helpWithEquipment.lu.qna",
+  "id": "helpWithEquipment"
+}

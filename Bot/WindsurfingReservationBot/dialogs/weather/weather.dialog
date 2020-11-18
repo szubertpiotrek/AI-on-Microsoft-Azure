@@ -1,0 +1,66 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "yh3A6k",
+    "name": "weather",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "rPeNPA"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "3mymt1"
+          },
+          "url": "http://api.openweathermap.org/data/2.5/weather?lat=54.75&lon=18.5&appid=206431c2a61b404b105bb0763a88daac",
+          "resultProperty": "dialog.api_response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "xqGf2f"
+          },
+          "condition": "dialog.api_response.statusCode==200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "lKO9Jy"
+              },
+              "property": "dialog.weather",
+              "value": "=dialog.api_response.content"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "9qxfPk"
+              },
+              "activity": "${SendActivity_9qxfPk()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "gOCaTK"
+              },
+              "activity": "${SendActivity_gOCaTK()}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "weather.lg",
+  "recognizer": "weather.lu.qna",
+  "id": "weather"
+}

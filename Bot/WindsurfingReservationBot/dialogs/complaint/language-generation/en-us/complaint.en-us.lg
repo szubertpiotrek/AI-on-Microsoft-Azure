@@ -1,0 +1,11 @@
+[import](common.lg)
+
+# TextInput_Prompt_JzHsot()
+-Hmm, did anything go wrong, while you were in our spot? Share your opinion.
+# TextInput_Prompt_ifUTxr()
+-Could you share with us yours e-mail? We contact with you, as soon as possible
+# SendActivity_chioNY()
+[Activity
+    Text = Thank you! We apologize for problems.
+    SuggestedActions = help | cancel
+]

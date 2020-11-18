@@ -1,0 +1,47 @@
+[import](common.lg)
+
+# SendActivity_Tl5wRx()
+- OK. I saved hours from ${user.reservation.timeRange.from} to ${user.reservation.timeRange.to}.
+# TextInput_Prompt_reDsoW()
+-Which board do you want? Choose one: training board, funboard, freestyle
+# TextInput_UnrecognizedPrompt_reDsoW()
+-Sorry the value '${this.value}' doesn't appear to be a valid entry. I'm looking for training board, funboard, freestyle.
+# TextInput_InvalidPrompt_reDsoW()
+-Sorry, '${this.value}' is not valid.  I'm looking for training board, funboard, freestyle
+# SendActivity_o37XR6()
+- OK! You choose ${user.reservation.board.type}.
+# NumberInput_Prompt_tAOjlG()
+-Decide what size of board you want? We have got boards from 70l to 180l.
+# SendActivity_LhaA7b()
+-We've got it! You choose ${user.reservation.board.type} with ${user.reservation.board.size}l.
+# NumberInput_Prompt_R2wZQ3()
+-So now, what sail do you prefer? Our sizes are from 3.0m2 to 9.0m2. 
+# SendActivity_JyPQNN()
+- Great! The sail ${user.reservation.sail.size}m2 is yours.
+# NumberInput_Prompt_ia9UhD()
+-Let's go! Tell me from what time do you want to start? We are opened from 8 to 16.
+# NumberInput_Prompt_TOgMcd()
+-Till what time?
+
+# ConfirmInput_Prompt_S57mAH()
+- Do you want a wetsuit or not?
+# SendActivity_pefzfo()
+- OK! Wetsuite is saved.
+# TextInput_Prompt_tl14Ss()
+- And the last thing, please write your mail, where we send you reservation confirmation.
+# SendActivity_Zm5uhM()
+[Activity
+    Text = Thank you! We send your confirmation on email: ${user.reservation.email}. Enjoy!!!
+    SuggestedActions = help | cancel
+]
+
+# SendActivity_PBQPp2()
+-Now you can see TOTAL COSTS: ${user.reservation.sum}
+# NumberInput_UnrecognizedPrompt_ia9UhD()
+-Sorry the value '${this.value}' doesn't appear to be a valid entry.
+# NumberInput_UnrecognizedPrompt_TOgMcd()
+-Sorry the value '${this.value}' doesn't appear to be a valid entry.
+# NumberInput_UnrecognizedPrompt_tAOjlG()
+-Sorry the value '${this.value}' doesn't appear to be a valid entry.
+# NumberInput_UnrecognizedPrompt_R2wZQ3()
+-Sorry the value '${this.value}' doesn't appear to be a valid entry.

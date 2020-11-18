@@ -1,0 +1,7 @@
+[import](common.lg)
+
+# SendActivity_RtqePB()
+[Activity
+    Text = If you want to know your reservation status, please check link in confirm reservation mail?
+    SuggestedActions = help | cancel
+]

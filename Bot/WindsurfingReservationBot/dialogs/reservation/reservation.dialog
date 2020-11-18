@@ -1,0 +1,397 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "qHQzif",
+    "name": "reservation",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "JMekAb"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.NumberInput",
+          "$designer": {
+            "id": "ia9UhD"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_ia9UhD()}",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.reservation.timeRange.from",
+          "outputFormat": "=this.value",
+          "prompt": "${NumberInput_Prompt_ia9UhD()}",
+          "validations": [
+            "this.value>=8.0&&this.value<=15.0"
+          ]
+        },
+        {
+          "$kind": "Microsoft.NumberInput",
+          "$designer": {
+            "id": "TOgMcd"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${NumberInput_Prompt_TOgMcd()}",
+          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_TOgMcd()}",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.reservation.timeRange.to",
+          "outputFormat": "=this.value",
+          "validations": [
+            "this.value>user.reservation.timeRange.from&&this.value<=16.0"
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Tl5wRx"
+          },
+          "activity": "${SendActivity_Tl5wRx()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "1j645Y"
+          },
+          "property": "user.reservation.timeRange.time",
+          "value": "=user.reservation.timeRange.to-user.reservation.timeRange.from"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "qmhdJG"
+          },
+          "property": "user.reservation.sum",
+          "value": "=0"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "reDsoW"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_reDsoW()}",
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_reDsoW()}",
+          "invalidPrompt": "${TextInput_InvalidPrompt_reDsoW()}",
+          "defaultValueResponse": "",
+          "property": "user.board",
+          "outputFormat": "=trim(this.value)"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "mTQG7h"
+          },
+          "condition": "user.board",
+          "cases": [
+            {
+              "value": "trainingboard",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "42BNmW"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.reservation.sum",
+                      "value": "=user.reservation.sum+20"
+                    },
+                    {
+                      "property": "user.reservation.board.type",
+                      "value": "training board"
+                    },
+                    {
+                      "property": "user.reservation.board.price",
+                      "value": "=20"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "funboard",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "c8q07l"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.reservation.sum",
+                      "value": "=user.reservation.sum+30"
+                    },
+                    {
+                      "property": "user.reservation.board.type",
+                      "value": "funboard"
+                    },
+                    {
+                      "property": "user.reservation.board.price",
+                      "value": "=30"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "freestyle",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "POy6Ro"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.reservation.sum",
+                      "value": "=user.reservation.sum+40"
+                    },
+                    {
+                      "property": "user.reservation.board.type",
+                      "value": "freestyle"
+                    },
+                    {
+                      "property": "user.reservation.board.price",
+                      "value": "=40"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "m6z8TN"
+              },
+              "assignments": [
+                {
+                  "property": "user.reservation.sum",
+                  "value": "=user.reservation.sum+20"
+                },
+                {
+                  "property": "user.reservation.board.type",
+                  "value": "training board"
+                },
+                {
+                  "property": "user.reservation.board.price",
+                  "value": "=20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "o37XR6"
+          },
+          "activity": "${SendActivity_o37XR6()}"
+        },
+        {
+          "$kind": "Microsoft.NumberInput",
+          "$designer": {
+            "id": "tAOjlG"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${NumberInput_Prompt_tAOjlG()}",
+          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_tAOjlG()}",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.reservation.board.size",
+          "outputFormat": "=this.value",
+          "validations": [
+            "this.value>=70&&this.value<=180"
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "LhaA7b"
+          },
+          "activity": "${SendActivity_LhaA7b()}"
+        },
+        {
+          "$kind": "Microsoft.NumberInput",
+          "$designer": {
+            "id": "R2wZQ3"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${NumberInput_Prompt_R2wZQ3()}",
+          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_R2wZQ3()}",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.reservation.sail.size",
+          "outputFormat": "=this.value",
+          "validations": [
+            "this.value>=3.0&&this.value<=9.0"
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "bVkgeN"
+          },
+          "assignments": [
+            {
+              "property": "user.reservation.sum",
+              "value": "=user.reservation.sum+20"
+            },
+            {
+              "property": "user.reservation.sail.price",
+              "value": "=20"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "JyPQNN"
+          },
+          "activity": "${SendActivity_JyPQNN()}"
+        },
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "S57mAH"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${ConfirmInput_Prompt_S57mAH()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "user.reservation.wetsuit.take",
+          "outputFormat": ""
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "pwHEmr"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "kXh5PR"
+              },
+              "assignments": [
+                {
+                  "property": "user.reservation.wetsuit.price",
+                  "value": "=5"
+                },
+                {
+                  "property": "user.reservation.sum",
+                  "value": "=user.reservation.timeRange.time*(user.reservation.sum+5)"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "pefzfo"
+              },
+              "activity": "${SendActivity_pefzfo()}"
+            }
+          ],
+          "condition": "user.reservation.wetsuit.take==true",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "wGsUB2"
+              },
+              "assignments": [
+                {
+                  "property": "user.reservation.wetsuit.price",
+                  "value": "=0"
+                },
+                {
+                  "property": "user.reservation.sum",
+                  "value": "=user.reservation.timeRange.time*(user.reservation.sum)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "PBQPp2"
+          },
+          "activity": "${SendActivity_PBQPp2()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "tl14Ss"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_tl14Ss()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.reservation.email",
+          "outputFormat": "=this.value"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Zm5uhM"
+          },
+          "activity": "${SendActivity_Zm5uhM()}"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "8rECZ9"
+          },
+          "property": "user.reservation"
+        }
+      ]
+    }
+  ],
+  "generator": "reservation.lg",
+  "recognizer": "reservation.lu.qna",
+  "id": "reservation"
+}
