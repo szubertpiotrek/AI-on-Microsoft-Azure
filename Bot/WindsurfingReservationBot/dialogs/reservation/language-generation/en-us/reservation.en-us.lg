@@ -23,8 +23,6 @@
 # NumberInput_Prompt_TOgMcd()
 -Till what time?
 
-# ConfirmInput_Prompt_S57mAH()
-- Do you want a wetsuit or not?
 # SendActivity_pefzfo()
 - OK! Wetsuite is saved.
 # TextInput_Prompt_tl14Ss()
@@ -45,3 +43,5 @@
 -Sorry the value '${this.value}' doesn't appear to be a valid entry.
 # NumberInput_UnrecognizedPrompt_R2wZQ3()
 -Sorry the value '${this.value}' doesn't appear to be a valid entry.
+# TextInput_Prompt_16Juhj()
+- Do you want a wetsuit or not?

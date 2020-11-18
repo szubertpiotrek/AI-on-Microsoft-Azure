@@ -11,42 +11,44 @@
 # TextInput_Prompt_7h3kW0()
 - Okey. Tell me, what is your experience level e.g. beginner, intermediate, advanced?
 # ChooseEquipment(wind, level)
-- IF: ${wind.speed<=0.4 && level=='begginer'}
+- IF: ${wind.wind.speed<=0.4 && level=='begginer'}
     - Take training board 180l and sail 5.0m2.
-- ELSEIF: ${wind.speed<=0.8 && level=='begginer'}
+- ELSEIF: ${wind.wind.speed<=3.0 && level=='begginer'}
     -Take training board 160l and sail 4.7m2.
-- ELSEIF: ${wind.speed<=1.0 && level=='begginer'}
+- ELSEIF: ${wind.wind.speed<=5.0 && level=='begginer'}
     - Take training board 160l and sail 4.2m2.
-- ELSEIF: ${wind.speed<=1.2 && level=='begginer'}
+- ELSEIF: ${wind.wind.speed<=6.0 && level=='begginer'}
     - Take training board 160l and sail 4.0m2.
-- ELSEIF: ${wind.speed<=0.4 && level=='intermediate'}
+- ELSEIF: ${wind.wind.speed<=0.4 && level=='intermediate'}
     - Take training board 145l and sail 6.0m2.
-- ELSEIF: ${wind.speed<=0.8 && level=='intermediate'}
+- ELSEIF: ${wind.wind.speed<=3.0 && level=='intermediate'}
     - Take training board 135l and sail 5.7m2.
-- ELSEIF: ${wind.speed<=1.0 && level=='intermediate'}
+- ELSEIF: ${wind.wind.speed<=5.0 && level=='intermediate'}
      - Take training board 125l and sail 5.0m2.
-- ELSEIF: ${wind.speed<=1.2 && level=='intermediate'}
+- ELSEIF: ${wind.wind.speed<=6.0 && level=='intermediate'}
      - Take training board 125l and sail 4.5m2.
-- ELSEIF: ${wind.speed<=0.4 && level=='advanced'}
+- ELSEIF: ${wind.wind.speed<=0.4 && level=='advanced'}
     - Today, better take a sup.
-- ELSEIF: ${wind.speed<=0.8 && level=='advanced'}
+- ELSEIF: ${wind.wind.speed<=3.0 && level=='advanced'}
     - Take training board 135l and sail 6.0m2.
-- ELSEIF: ${wind.speed<=1.0 && level=='advanced'}
+- ELSEIF: ${wind.wind.speed<=5.0 && level=='advanced'}
     - Take training board 100l and sail 6.0m2.
+- ELSEIF: ${wind.wind.speed<=6.0 && level=='advanced'}
+     - Take training board 90l and sail 4.5m2.
 - ELSE:
-    - Take training board 90l and sail 4.5m2.
+    - Stay at home.
 # DescribeWeather(wind)
-- IF: ${wind.speed<=0.2}
+- IF: ${wind.wind.speed<=0.4}
     - it's not windy, take a sup.
-- ELSEIF: ${wind.speed<=0.4}
+- ELSEIF: ${wind.wind.speed<=1.5}
     - it's time for first steps.
-- ELSEIF: ${wind.speed<=0.6}
+- ELSEIF: ${wind.wind.speed<=3.0}
     - it's quite good for taining board.
-- ELSEIF: ${wind.speed<=0.8}
+- ELSEIF: ${wind.wind.speed<=4.0}
     - it's quite good for intermediate.
-- ELSEIF: ${wind.speed<=1.0}
+- ELSEIF: ${wind.wind.speed<=5.0}
     - take a board and surf.
-- ELSEIF: ${wind.speed<=1.2}
+- ELSEIF: ${wind.wind.speed<=6.0}
     - take a board and fly.
 - ELSE: 
     - better stay at home.

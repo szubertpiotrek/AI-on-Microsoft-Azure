@@ -9,17 +9,17 @@
     image = ${dialog.weather.icon}
 ]
 # DescribeWeather(wind)
-- IF: ${wind.speed<=0.2}
+- IF: ${wind.wind.speed<=0.4}
     - it's not windy, take a sup.
-- ELSEIF: ${wind.speed<=0.4}
+- ELSEIF: ${wind.wind.speed<=1.5}
     - it's time for first steps.
-- ELSEIF: ${wind.speed<=0.6}
+- ELSEIF: ${wind.wind.speed<=3.0}
     - it's quite good for taining board.
-- ELSEIF: ${wind.speed<=0.8}
+- ELSEIF: ${wind.wind.speed<=4.0}
     - it's quite good for intermediate.
-- ELSEIF: ${wind.speed<=1.0}
+- ELSEIF: ${wind.wind.speed<=5.0}
     - take a board and surf.
-- ELSEIF: ${wind.speed<=1.2}
+- ELSEIF: ${wind.wind.speed<=6.0}
     - take a board and fly.
 - ELSE: 
     - better stay at home.

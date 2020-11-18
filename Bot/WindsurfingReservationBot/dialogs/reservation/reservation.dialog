@@ -279,27 +279,19 @@
           "activity": "${SendActivity_JyPQNN()}"
         },
         {
-          "$kind": "Microsoft.ConfirmInput",
+          "$kind": "Microsoft.TextInput",
           "$designer": {
-            "id": "S57mAH"
+            "id": "16Juhj"
           },
-          "defaultLocale": "en-us",
           "disabled": false,
           "maxTurnCount": 3,
           "alwaysPrompt": false,
           "allowInterruptions": true,
-          "prompt": "${ConfirmInput_Prompt_S57mAH()}",
+          "prompt": "${TextInput_Prompt_16Juhj()}",
           "unrecognizedPrompt": "",
           "invalidPrompt": "",
           "defaultValueResponse": "",
-          "choiceOptions": {
-            "includeNumbers": true,
-            "inlineOrMore": ", or ",
-            "inlineOr": " or ",
-            "inlineSeparator": ", "
-          },
-          "property": "user.reservation.wetsuit.take",
-          "outputFormat": ""
+          "property": "user.reservation.wetsuit.take"
         },
         {
           "$kind": "Microsoft.IfCondition",
@@ -319,9 +311,17 @@
                 },
                 {
                   "property": "user.reservation.sum",
-                  "value": "=user.reservation.timeRange.time*(user.reservation.sum+5)"
+                  "value": "=user.reservation.sum+5"
                 }
               ]
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "sNYMrR"
+              },
+              "value": "=user.reservation.timeRange.time*(user.reservation.sum)",
+              "property": "user.reservation.sum"
             },
             {
               "$kind": "Microsoft.SendActivity",
@@ -331,7 +331,7 @@
               "activity": "${SendActivity_pefzfo()}"
             }
           ],
-          "condition": "user.reservation.wetsuit.take==true",
+          "condition": "user.reservation.wetsuit.take=='yes'",
           "elseActions": [
             {
               "$kind": "Microsoft.SetProperties",
