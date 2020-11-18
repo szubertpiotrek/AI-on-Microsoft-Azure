@@ -86,5 +86,4 @@
     We włąsnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
 
 ### Pricing dla Europy Zachodniej:
-![](img/cognitiveSpeechServices1.png)
-![](img/cognitiveSpeechServices2.png)
+![](img/cognitiveSpeechServices.png)
