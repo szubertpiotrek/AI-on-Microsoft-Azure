@@ -68,9 +68,8 @@
 
  #### 1. Intro
   - 1.1 - Celem **Speech Translation API** jest zapewnienie usługi opartej na uczeniu maszynowym i sztucznej inteligencji, skupiającej się
-  na wielojęzycznym tłumaczeniu mowy w czasie rzeczywistym, umożliwiając dodawanie tłumaczeń mowy w czasie rzeczywistym do
-  aplikacji.
-
+  na wielojęzycznym tłumaczeniu mowy w czasie rzeczywistym.
+  
   - 1.2 - **Speech Translation API** wykorzystuje detekcje ciszy, determinującą koniec frazy, a następnie po przerwie
   serwis odsyła opracowany rezultat. W celu zachowania ciągłości w tłumaczeniu, usługa przesyła częsciowe wyniki tłumaczenia
   dla procesowanej frazy. Gdy chemy uzyskać ostateczny rezultat, zapewniona jest synteza mowy z tekstu mówionego w docelowych
