@@ -85,5 +85,5 @@
     dotyczy odpowiedni endpoint. Drugi sposób powiązany ze Speech SDK wymaga także doprecyzowania lokalizacji, z której korzysta usługa.
     We włąsnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
 
-### Pricing dla Europy Zachodniej:
+### Pricing dla Europy Zachodniej dla Azure Cognitive Speech Services:
 ![](img/cognitiveSpeechServices.png)
