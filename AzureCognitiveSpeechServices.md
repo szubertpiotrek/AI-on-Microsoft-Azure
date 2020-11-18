@@ -20,7 +20,7 @@
  - 3.1 Użycie niezależnej platformy RESTowej lub Speech SDK umożliwia integrację serwisów z dowolnymi usługami.
  Oba sposoby wymagają stworznia usługi na platformie Azure, gdzie wykorzystują klucz subskrybcji, jednak tylko wersji RESTowej
  dotyczy odpowiedni endpoint. Drugi sposób powiązany ze Speech SDK wymaga także doprecyzowania lokalizacji, z której korzysta usługa.
- We włąsnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
+ We własnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
 
 ### Text-to-Speech Services
 
@@ -42,7 +42,7 @@
  - 3.1 - Użycie niezależnej platformy RESTowej lub Speech SDK umożliwia integrację serwisów z dowolnymi usługami.
  Oba sposoby wymagają stworznia usługi na platformie Azure, gdzie wykorzystują klucz subskrybcji, jednak tylko wersji RESTowej
  dotyczy odpowiedni endpoint. Drugi sposób powiązany ze Speech SDK wymaga także doprecyzowania lokalizacji, z której korzysta usługa.
- We włąsnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
+ We własnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
 
 ### Speech Recognition API
 
@@ -62,7 +62,7 @@
  - 3.1 - Użycie niezależnej platformy RESTowej lub Speech SDK umożliwia integrację serwisów z dowolnymi usługami.
    Oba sposoby wymagają stworznia usługi na platformie Azure, gdzie wykorzystują klucz subskrybcji, jednak tylko wersji RESTowej
    dotyczy odpowiedni endpoint. Drugi sposób powiązany ze Speech SDK wymaga także doprecyzowania lokalizacji, z której korzysta usługa.
-   We włąsnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
+   We własnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
 
 ### Speech Translation API
 
@@ -72,7 +72,7 @@
   
   - 1.2 - **Speech Translation API** wykorzystuje detekcje ciszy, determinującą koniec frazy, a następnie po przerwie
   serwis odsyła opracowany rezultat. W celu zachowania ciągłości w tłumaczeniu, usługa przesyła częsciowe wyniki tłumaczenia
-  dla procesowanej frazy. Gdy chemy uzyskać ostateczny rezultat, zapewniona jest synteza mowy z tekstu mówionego w docelowych
+  dla procesowanej frazy. Gdy chemy uzyskać ostateczny rezultat, zapewniona jest synteza mowy z tekstu mówionego w docelowy rezultat.
 
  #### 2. Use cases
   - 2.1 - Tłumaczenie odtwarzanych plików
@@ -83,7 +83,7 @@
   - 3.1 - Użycie niezależnej platformy RESTowej lub Speech SDK umożliwia integrację serwisów z dowolnymi usługami.
     Oba sposoby wymagają stworznia usługi na platformie Azure, gdzie wykorzystują klucz subskrybcji, jednak tylko wersji RESTowej
     dotyczy odpowiedni endpoint. Drugi sposób powiązany ze Speech SDK wymaga także doprecyzowania lokalizacji, z której korzysta usługa.
-    We włąsnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
+    We własnej aplikacji z obu elementów najlepiej korzystać poprzez język programowania Python lub #C.
 
 ### Pricing dla Europy Zachodniej dla Azure Cognitive Speech Services:
 ![](img/cognitiveSpeechServices.png)
