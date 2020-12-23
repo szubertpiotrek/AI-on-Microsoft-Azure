@@ -1,0 +1,27 @@
+<div style="background-color: lightblue; min-height: 100vh; width: 100vw;">
+  <div style="text-align:center; padding-top: 30px">
+    <h1>
+      Check the breed of the dog
+    </h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <div class="row">
+          <div class="col-lg-12 col-12">
+            <app-upload-file (response)="response($event)"></app-upload-file>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 col-10">
+            <ul *ngFor="let item of predictions">
+              <li>
+                <mat-card>{{item?.tagName}}: {{item?.probability}}</mat-card>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
