@@ -1,6 +1,6 @@
 # AI-on-Microsoft-Azure
 
-## Azure Cognitive Vision Services
+## Azure Vision Services
 
 ### Face API
 
@@ -37,7 +37,7 @@
     Wspieranymi językami programowania jest Python lub #C.
             
  - 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
- ![](img/QnAMake.png)
+ ![](img/FaceAPI.png)
 
 ### Face Detection API
 
@@ -92,8 +92,7 @@
    ``` 
         
 
- - 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
- ![](img/AzureBotService.png)
+ - 3.2 - Pricing dla Europy Zachodniej jak dla **Face API**
 
 ### Face Recognition API
 
@@ -118,7 +117,7 @@
     
     **Face Recognition API** przykładowo w procesie weryfikacji zwraca informacje o pewności zgodności porównywanych zdjęć.
        
- - 3.2 - Pricing: ZA DARMO
+ - 3.2 - Pricing dla Europy Zachodniej jak dla **Face API**
  
 ### Emotion API
 
@@ -174,7 +173,7 @@
       ```
       - lokalizacji regionu na zdjęciu
           
- - 3.2 - Pricing: ZA DARMO
+ - 3.2 - Pricing dla Europy Zachodniej jak dla **Face API**
  
 ### Computer Vision API
 
@@ -203,37 +202,20 @@
     gdzie **region** to lokalizacja działania aplikacji, **resource** to rodzaje zasobów (analyze, describe, generateThumbnail, ocr, models, recognizeText, tag),
     oraz **parameteres**, które opisują badany element.
           
- - 3.2 - Pricing: ZA DARMO
-  
+- 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
+    ![](img/ComputerVisionAPI.png)
+ 
 ### Custom Vision Service
 
 #### 1. Intro
- - 1.1 - Celem **Custom Vision Service** jest tworzenie modeli klasyfikacji obrazów, które uczą się na podstawie udostępnionych obrazów z etykietami.
-
- - 1.2 - **Custom Vision Service** pozwala stworzyć własne klasyfikatory obrazów, które następnie można odpytywać poprzez REST API.
- 
-#### 2. Use cases
- - 2.1 - Rozpoznawanie obrazów
- - 2.2 - Przetwarzanie tekstów pisanych do wersji elektronicznej
- - 2.3 - Analiza udostępnianych obrazów dla osób niepełnoletnich
-
-#### 3. How to use
- - 3.1 - **Custom Vision Service** działa poporzez budowę niezależnej platformy RESTowej, gdzie wykorzystuje się klucz subskrybcji i odpowiedni endpoint.
-    W celu użycia serwisu należy wykonać zapytanie pod odpowiednio wcześniej stworzony model i uzyskać informacje o klasyfiowanym obiekcie.
-          
- - 3.2 - Pricing: ZA DARMO
- 
- ### Computer Vision API
-
-#### 1. Intro
- - 1.1 - Celem **Custom Vision API** jest dostarczenie algorytmów, dzięki którym można tworzyć i dostosowywać własne
+ - 1.1 - Celem **Custom Vision Service** jest dostarczenie algorytmów, dzięki którym można tworzyć i dostosowywać własne
   najnowocześniejsze modele przetwarzania obrazów.
 
- - 1.2 - **Custom Vision API** używa wywołań protokołu REST, aby tworzyć klasyfikatory, przekazywać obrazy
+ - 1.2 - **Custom Vision Service** używa wywołań protokołu REST, aby tworzyć klasyfikatory, przekazywać obrazy
   i oznaczać je tagami, przeprowadzać trenowanie, zarządzać iteracjami modelu, korzystać z przewidywania. Usługami oferowanymi przez
   to API jest **trenowanie klasyfikatorów** i **przewidywanie** na podstawie modeli klasyfikacji.
   
-    **Custom Vision API** wykorzystać można do:
+    **Custom Vision Service** wykorzystać można do:
       - tworzenia nowych modeli
       - tagowania obrazów treningowych
       - trenowania klasyfikatorów
@@ -245,7 +227,7 @@
  - 2.3 - Klasyfikacja komórek rakowych
 
 #### 3. How to use
- - 3.1 - **Custom Vision API** działa poprzez odpytanie RESTowe, gdzie wykorzystuje się klucz subskrybcji i odpowiedni endpoint.
+ - 3.1 - **Custom Vision Service** działa poprzez odpytanie RESTowe, gdzie wykorzystuje się klucz subskrybcji i odpowiedni endpoint.
     Usługa może realizować:
       - ClassifyImage - klasyfikacja poprzez bloba
       - ClassifyImageUrl - klasyfikacja poprzez link do zdjęcia
@@ -261,7 +243,8 @@
       
       W wyniku użycia otrzymujemy odpowiednią odpowiedź w formacie JSON
           
- - 3.2 - Pricing: ZA DARMO
+- 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
+    ![](img/CustomVisionAPI.png)
  
   ### Azure Video Indexer
 
@@ -289,4 +272,12 @@
      - plik jako tablica bajtów
      - odwołanie do identyfikatora zasobu
           
- - 3.2 - Pricing: ZA DARMO
+- 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
+    Do 10 godzin darmowego indeksowania w aplikacjach webowych, oraz do 40 godzin dla użytkowników korzystających z API. W przypadku
+    przekroczenia limitów dodatkowym opłatom podlega:
+     - analiza audio/wideo
+     - kodowanie
+     - przesyłanie strumieniowe
+     - storage
+     - wychodzący ruch sieciowy
+     - jednostki zarezerwowane dla serwisów media

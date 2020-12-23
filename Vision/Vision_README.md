@@ -1,60 +1,58 @@
 # AI-on-Microsoft-Azure
 
-## Windsurfing Reservation Bot
+## Klasyfikacja piesków
 
 #### 1. Use Case
- - 1.1 - Bot **Windsurfing Reservation Bot** ma służyć do rezerwacji sprzętu windsurfingowego oraz zapewniać
- dodatkowe możliwość.
-    - rezerwacja - aplikacja pozawala na wieloetapową scieżkę doboru sprzętu. Typ deski windsurfingowej, rozmiar,
-    odpowiedni pędnik, dobierany w zależności od wiatru oraz kwestia posiadania pianki, ponieważ opisany spot ma
-    ustawioną lokalizację w Chałupach.
-    
-    - pomoc w doborze sprzętu - aplikacja wykorzystując API pogodowe i informacje o wietrze, a także pobierając dane
-    od użytkownika decyduje jaki sprzęt najlepiej będzie pasował do danych warunków pogodowych
-    
-    - pogoda - odpowiedź na często zadawane sobie pytanie, czy dzisiaj warto pływać, zwracana jest informacja
-    o wietrze jak i o zdefiniowanych przez spot wskazówek, czy wg nich warto pływać
-    
-    - złożenie zażalenia - umożliwia złożenie zażalnia o usterkach podczas realizacji usługi w bazie windsurferskiej
-    
-    - status zażalenia - przekazanie informacji, że wszystkie dane podane są w mailu
-    
-    - pomoc - krótka informacja o możliwościach jakie daje aplikacja
-    
-    - informacje/kontakt - przekazanie informacji o miejscu bazy oraz kontakcie 
-    
-    - zakończenie działania - możliwość zakończenia aktywnych dialogów w ramach czatu
+ - 1.1 - Klasyfikator ma służyć do rozpoznania rasy pieska po udostępnieniu jego zdjęcia.
+ 
+   W obecnej formie klasyfikator realizuje rozpoznanie 5 ras psów:
+      - Border Collie
+      - Owczarek Niemiecki
+      - Golden Retriver
+      - Labrador
+      - Husky
+ 
+   Rozwiązanie zakłada **2 sposoby** skorzystania z przygotowanego klasyfikatora:
+      - Serwis **Custom Vision**, w którym użytkownik po wyborze testowania może udostępnić zdjęcie i czekać na odpowiedź z danymi
+      - Aplikacja webowa **vision-app**, w której użytkownik po upuszczeniu zdjęcia w odpowiednim miejscu po chwili otrzymuje wynik
 
-#### 2. Budowa bota
-  Do budowy bota został wykorzystany Bot Framework Composer, który zapewnia tak naprawdę większość
-  elementów, pozwalających na budowę Bota. Istotnym elementem jest wbudowany domyślnie w wersji 1.1.1 Bot
-  Composera LUIS(Language Understanding). Dzięki LUIS, możemy analizować składnie fraz podawanych przez 
-  użytkownika, i decydować o konkretnym scenariuszu realizowanym przez bota. Domyślnym językiem jest język
-  angielski i w nim bot się porozumiewa. Dodatkowo bot został poszerzony o zewnętrzne API pogodowe. 
+#### 2. Budowa klasyfikatora
+  Do budowy klasyfikatora użyta została platforma webowa dostarczona przez Microsoft Azure pod nazwą **Custom Vision**. Aplikacja umożliwia
+  przygotowanie detekcji obiektów, jak i klasyfikacji, gdzie ze względu na postawiony problem wybrano drugie rozwiązanie.
  - 2.1 - Kroki
-    - Bot Composer - aplikacja
-        -stworzenie triggerów decydujących o uruchamianych przpadkach użycia
+    - Skrypt pythonowy **icrawler.py** - posłużył do pobrania na podstawie przeglądarki Bing ok. 700 zdjęć dla każdej rasy w celu przygotowania
+    odpowiedniego zbioru treningowego
+ 
+    - **Custom Vision Service**
+       - stworzenie odpowiednich tagów dla piesków: border_collie, german_shepherd, golden_retriver, labrador, siberian_husky
+    
+       - wczytanie dla każdego tagu odpowiedniego zbioru danych
         
-        -dodanie słów kluczowych dla każdego przypadku, które analizowane są przez LUIS API(potrzebny klucz prywatny i endpoint)
+       - selekcja zdjęć dla tagów, gdzie średnio pozostało ich ok. 350-500 dla każdej rasy
         
-        -dodanie nowych dialogów, które są powiązane z triggerami
+       - rozpoczęcie zaawansowanego trenowania na czas 1h
         
-        -budowa dialogów realizujący odpowiednie przypadki użycia
+       - uzyskanie odpowiedniego wyniku dla zdjęć testowych
+       
+        ![](../img/CustomVisionDogs.png)
         
-        -odpowiednia konfiguaracja tworzonych inputów, opowiedzi bota, pozwalających na dynamiczną konwersację z warunkowymi zdarzeniami
-        
-        -weryfikacja działania bota w aplikacji Bot Framework Emulator, która podpina się pod localhosta z aplikacją Bot Composera
+       - publikacja endpointu
+       
+    - Aplikacja Webowa **vision-app** (localhost)
+    
+       - budowa prostej aplikacji webowej w Angularze umożliwiającej wykonanie zapytania do opublikowanego klasyfikatora
+       
+         ![](../img/VisionApp.png)
 
 #### 3. Architektura
- Bot oparty jest o architekturę REST-ową, komunikuje się z zewnętrznymi API po protokole HTTP. Przetwarzane są w tych relacjach dane
- w formacie JSON, które następnie w aplikacji zbudowanej w Bot Framework Composerze, są odbierane i przetwarzane. Bot korzysta z API
- powiązanym z Language Understanding oraz w Weather API. Sama aplikacja podzielona jest na triggery wywołujące scenariusze oraz diaglogi,
- które realizowane są pod warunkami, które musi spełnić użytkownik w celu kontynuowania rozpoczętego procesu.
+ Klasyfikator oparty jest o architekturę RESTową w przypadku aplikacji webowej. Umieszczone zapytanie typu POST przekazuje zdjęcie
+ w postaci binarnej i wykonuje zapytanie. W przypadku serwisu na platfomie Microsoft, elementy tagowania, trenowania i testowania odbywają
+ się w tym samym miejscu. Tam też uploadowane pliki i wyniki zostają zapisane w zakładce predykcji.
 
 #### 3. Kod
- Kod umieszczony został w folderze pod nazwą WindsurfingReservationBot. Jest on wygenerowany za pomocą aplikacji Bot Composera,
- a także odpowiednio modyfikowany, by stworzyć spójnego bota. Kluczowy w zreprodukowaniu bota jest plik **appsettings.json**, w którym
- należy podać endpoint oraz swój klucz prywatny dla serwisu LUIS.
+ Kod umieszczony został w folderze pod nazwą **vision-app**, jest to aplikacja Angularowa, której elementy do uruchomienia aplikacji opisane są w README.MD.
+ 
+ Aplikacja umieszczona w **Custom Vision Service** nie pozwala na udostępnienie kodu.
  
  #### 4. Wideo na YT
  

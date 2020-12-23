@@ -1,5 +1,7 @@
 # VisionApp
 
+!Aplikacja może wymagać posiadania angulara-cli!
+
 ### Lokalne uruchomienie aplikacji
 
 By uruchomić lokalnie aplikację, należy podstawić parametry własnego serwisu w pliku `keys.ts`
