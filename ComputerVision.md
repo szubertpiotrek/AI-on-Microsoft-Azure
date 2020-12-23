@@ -246,7 +246,7 @@
 - 3.2 - Pricing dla Europy Zachodniej:<br/><br/>
     ![](img/CustomVisionAPI.png)
  
-  ### Azure Video Indexer
+### Azure Video Indexer
 
 #### 1. Intro
  - 1.1 - Celem **Azure Video Indexer** jest ekstrakcja informacji z treści video. Wykorzystuje się do tego

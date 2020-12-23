@@ -50,9 +50,9 @@
  się w tym samym miejscu. Tam też uploadowane pliki i wyniki zostają zapisane w zakładce predykcji.
 
 #### 3. Kod
- Kod umieszczony został w folderze pod nazwą **vision-app**, jest to aplikacja Angularowa, której elementy do uruchomienia aplikacji opisane są w README.MD.
+ Kod umieszczony został w folderze pod nazwą **vision-app**, jest to aplikacja Angularowa, której elementy do uruchomienia aplikacji opisane są w README.md.
  
- Aplikacja umieszczona w **Custom Vision Service** nie pozwala na udostępnienie kodu.
+ Aplikacja umieszczona na platformie **Custom Vision Service** nie pozwala na udostępnienie kodu.
  
  #### 4. Wideo na YT
  
